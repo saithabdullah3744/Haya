@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Haya!</title>
+    <style>
+        :root {
+            --primary-pink: #ff6b8b;
+            --light-pink: #ffd6e0;
+            --text-pink: #d14068;
+        }
+        body {
+            background-color: var(--light-pink);
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: var(--text-pink);
+        }
+        .container {
+            position: relative;
+            z-index: 10;
+            margin-top: 100px;
+        }
+        h1 { font-size: 3rem; }
+        .cake-area { margin-top: 50px; }
+        .candle {
+            width: 20px;
+            height: 50px;
+            background-color: #fff;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 5px;
+        }
+        .flame {
+            width: 15px;
+            height: 30px;
+            background-color: #ffaa00;
+            position: absolute;
+            top: -30px;
+            left: 2.5px;
+            border-radius: 50% 50% 20% 20%;
+            animation: flicker 0.5s infinite alternate;
+        }
+        .cake {
+            width: 200px;
+            height: 100px;
+            background-color: #ff8da1;
+            margin: 10px auto;
+            border-radius: 10px;
+            position: relative;
+            box-shadow: 0 10px 0 #ff5c77;
+        }
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+        .blown { display: none; }
+        .letter {
+            width: 80%;
+            max-width: 500px;
+            background-color: #fff;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+            line-height: 1.6;
+        }
+        .floating {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            background-color: var(--primary-pink);
+            border-radius: 50%;
+            animation: floatUp 6s linear infinite;
+            bottom: -100px;
+        }
+        .floating::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 30px;
+            background-color: #aaa;
+            bottom: -30px;
+            left: 24px;
+        }
+        .heart {
+            background-color: #ff2a55;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            transform: rotate(-45deg);
+            bottom: -100px;
+            animation: floatUp 8s linear infinite;
+        }
+        .heart::before, .heart::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-color: #ff2a55;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before { top: -15px; left: 0; }
+        .heart::after { top: 0; left: 15px; }
+        @keyframes floatUp {
+            0% { bottom: -100px; transform: translateX(0); }
+            50% { transform: translateX(20px); }
+            100% { bottom: 100vh; transform: translateX(-20px); }
+        }
+        button {
+            background-color: var(--primary-pink);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+        button:hover { background-color: #ff3b61; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div id="air"></div>
+    <div class="container">
+        <h1>Happy Birthday Haya! 🎂</h1>
+        <div class="cake-area">
+            <div class="candle" id="candle">
+                <div class="flame" id="flame"></div>
+            </div>
+            <div class="cake"></div>
+        </div>
+        <br>
+        <button id="blowBtn" onclick="blowOut()">Blow Candle & Cut Cake</button>
+        <div class="letter" id="letter">
+            <h2>Dear Haya,</h2>
+            <p>You are an amazing sister. May your day be as beautiful and bright as your smile. Wishing you endless happiness!</p>
+            <button onclick="revealGift()">Open Your Gift</button>
+        </div>
+        <div class="letter" id="gift">
+            <h2>Surprise! 🎁</h2>
+            <p>Here is your special birthday gift just for you!</p>
+        </div>
+    </div>
+    <script>
+        function createElements() {
+            const air = document.getElementById('air');
+            for(let i=0; i<10; i++) {
+                let b = document.createElement('div');
+                b.className = 'floating';
+                b.style.left = Math.random() * 90 + 'vw';
+                b.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                air.appendChild(b);
+                let h = document.createElement('div');
+                h.className = 'heart';
+                h.style.left = Math.random() * 90 + 'vw';
+                h.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                air.appendChild(h);
+            }
+        }
+        function blowOut() {
+            document.getElementById('flame').style.display = 'none';
+            document.getElementById('blowBtn').style.display = 'none';
+            setTimeout(() => {
+                document.getElementById('letter').style.display = 'block';
+            }, 1000);
+        }
+        function revealGift() {
+            document.getElementById('gift').style.display = 'block';
+        }
+        createElements();
+    </script>
+</body>
+</html>
