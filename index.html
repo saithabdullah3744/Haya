@@ -1,178 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Haya!</title>
-    <style>
-        :root {
-            --primary-pink: #ff6b8b;
-            --light-pink: #ffd6e0;
-            --text-pink: #d14068;
-        }
-        body {
-            background-color: var(--light-pink);
-            margin: 0;
-            overflow: hidden;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            color: var(--text-pink);
-        }
-        .container {
-            position: relative;
-            z-index: 10;
-            margin-top: 100px;
-        }
-        h1 { font-size: 3rem; }
-        .cake-area { margin-top: 50px; }
-        .candle {
-            width: 20px;
-            height: 50px;
-            background-color: #fff;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 5px;
-        }
-        .flame {
-            width: 15px;
-            height: 30px;
-            background-color: #ffaa00;
-            position: absolute;
-            top: -30px;
-            left: 2.5px;
-            border-radius: 50% 50% 20% 20%;
-            animation: flicker 0.5s infinite alternate;
-        }
-        .cake {
-            width: 200px;
-            height: 100px;
-            background-color: #ff8da1;
-            margin: 10px auto;
-            border-radius: 10px;
-            position: relative;
-            box-shadow: 0 10px 0 #ff5c77;
-        }
-        @keyframes flicker {
-            0% { transform: scale(1); opacity: 0.8; }
-            100% { transform: scale(1.2); opacity: 1; }
-        }
-        .blown { display: none; }
-        .letter {
-            width: 80%;
-            max-width: 500px;
-            background-color: #fff;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: none;
-            line-height: 1.6;
-        }
-        .floating {
-            position: absolute;
-            width: 50px;
-            height: 60px;
-            background-color: var(--primary-pink);
-            border-radius: 50%;
-            animation: floatUp 6s linear infinite;
-            bottom: -100px;
-        }
-        .floating::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 30px;
-            background-color: #aaa;
-            bottom: -30px;
-            left: 24px;
-        }
-        .heart {
-            background-color: #ff2a55;
-            width: 30px;
-            height: 30px;
-            position: absolute;
-            transform: rotate(-45deg);
-            bottom: -100px;
-            animation: floatUp 8s linear infinite;
-        }
-        .heart::before, .heart::after {
-            content: '';
-            width: 30px;
-            height: 30px;
-            background-color: #ff2a55;
-            border-radius: 50%;
-            position: absolute;
-        }
-        .heart::before { top: -15px; left: 0; }
-        .heart::after { top: 0; left: 15px; }
-        @keyframes floatUp {
-            0% { bottom: -100px; transform: translateX(0); }
-            50% { transform: translateX(20px); }
-            100% { bottom: 100vh; transform: translateX(-20px); }
-        }
-        button {
-            background-color: var(--primary-pink);
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            transition: 0.3s;
-        }
-        button:hover { background-color: #ff3b61; transform: scale(1.05); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday HAYA 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: white;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #1b062b,
+        #5c146f,
+        #d63384,
+        #ff9acb
+    );
+    background-size: 400% 400%;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    width: 92%;
+    max-width: 600px;
+    margin: 35px auto;
+    padding: 28px 20px;
+    border-radius: 28px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 35px rgba(255,105,180,0.4);
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: clamp(30px, 7vw, 45px);
+    color: #fff0f7;
+    text-shadow: 0 0 15px #ff4da6,
+                 0 0 35px #ff1493;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff4da6; }
+    to { text-shadow: 0 0 30px #ff1493, 0 0 50px #ff69b4; }
+}
+
+.subtitle {
+    margin: 15px 0;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.name {
+    font-size: 32px;
+    color: #ffe0f0;
+    margin: 18px 0;
+    text-shadow: 0 0 18px #ff69b4;
+    font-weight: bold;
+}
+
+.cake {
+    position: relative;
+    width: 200px;
+    height: 170px;
+    margin: 35px auto 25px;
+}
+
+.cake-top {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    width: 170px;
+    height: 45px;
+    border-radius: 50%;
+    background: #ffb6d9;
+    border: 4px solid #fff0f7;
+    z-index: 2;
+}
+
+.cake-body {
+    position: absolute;
+    top: 55px;
+    left: 15px;
+    width: 170px;
+    height: 80px;
+    border-radius: 8px 8px 20px 20px;
+    background: linear-gradient(#ff69b4, #e60073);
+    box-shadow: 0 10px 20px #55002b;
+}
+
+.icing {
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    width: 170px;
+    height: 20px;
+    background: #fff0f7;
+    border-radius: 0 0 50% 50%;
+    z-index: 3;
+}
+
+.candle {
+    position: absolute;
+    width: 12px;
+    height: 45px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff,
+        #fff 5px,
+        #ff69b4 5px,
+        #ff69b4 10px
+    );
+    top: -8px;
+    left: 94px;
+    z-index: 4;
+    border-radius: 4px;
+}
+
+.flame {
+    position: absolute;
+    width: 18px;
+    height: 25px;
+    background: radial-gradient(#fff9a6, #ff8c00, #ff1493);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    top: -31px;
+    left: -3px;
+    box-shadow: 0 0 20px #ffd700;
+    animation: flicker .4s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: rotate(-45deg) scale(1); }
+    to { transform: rotate(-40deg) scale(1.12); }
+}
+
+button {
+    border: none;
+    padding: 13px 20px;
+    margin: 8px 5px;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff1493, #ff69b4);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(255,105,180,.6);
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 28px #ffb6d9;
+}
+
+.letter {
+    display: none;
+    margin-top: 25px;
+    padding: 22px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.4);
+    line-height: 1.9;
+    animation: appear 1s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.gift {
+    font-size: 75px;
+    cursor: pointer;
+    margin: 25px auto 10px;
+    transition: .4s;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.gift:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+#giftMessage {
+    display: none;
+    font-size: 21px;
+    color: #fff0f7;
+    margin: 15px;
+    text-shadow: 0 0 15px #ff1493;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 13px;
+    opacity: .85;
+}
+</style>
 </head>
+
 <body>
-    <div id="air"></div>
-    <div class="container">
-        <h1>Happy Birthday Haya! 🎂</h1>
-        <div class="cake-area">
-            <div class="candle" id="candle">
-                <div class="flame" id="flame"></div>
-            </div>
-            <div class="cake"></div>
-        </div>
-        <br>
-        <button id="blowBtn" onclick="blowOut()">Blow Candle & Cut Cake</button>
-        <div class="letter" id="letter">
-            <h2>Dear Haya,</h2>
-            <p>You are an amazing sister. May your day be as beautiful and bright as your smile. Wishing you endless happiness!</p>
-            <button onclick="revealGift()">Open Your Gift</button>
-        </div>
-        <div class="letter" id="gift">
-            <h2>Surprise! 🎁</h2>
-            <p>Here is your special birthday gift just for you!</p>
+
+<div class="container">
+
+    <h1>🎉 Happy Birthday 🎉</h1>
+
+    <p class="subtitle">
+        Today is a very special day! 💗<br>
+        A little surprise made with love.
+    </p>
+
+    <!-- Name Changed to HAYA -->
+    <div class="name" id="personName">
+        Happy Birthday Dear HAYA 👑💗
+    </div>
+
+    <p class="subtitle">
+        May your life always sparkle with happiness,
+        love and beautiful memories! ✨
+    </p>
+
+    <div class="cake">
+        <div class="cake-top"></div>
+        <div class="cake-body"></div>
+        <div class="icing"></div>
+
+        <div class="candle" id="candle">
+            <div class="flame" id="flame"></div>
         </div>
     </div>
-    <script>
-        function createElements() {
-            const air = document.getElementById('air');
-            for(let i=0; i<10; i++) {
-                let b = document.createElement('div');
-                b.className = 'floating';
-                b.style.left = Math.random() * 90 + 'vw';
-                b.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                air.appendChild(b);
-                let h = document.createElement('div');
-                h.className = 'heart';
-                h.style.left = Math.random() * 90 + 'vw';
-                h.style.animationDuration = (Math.random() * 4 + 6) + 's';
-                air.appendChild(h);
-            }
-        }
-        function blowOut() {
-            document.getElementById('flame').style.display = 'none';
-            document.getElementById('blowBtn').style.display = 'none';
-            setTimeout(() => {
-                document.getElementById('letter').style.display = 'block';
-            }, 1000);
-        }
-        function revealGift() {
-            document.getElementById('gift').style.display = 'block';
-        }
-        createElements();
-    </script>
+
+    <h2>🎂 Make a Wish! 🎂</h2>
+
+    <p class="subtitle">
+        Close your eyes, make a wish and blow the candles! 💕
+    </p>
+
+    <button onclick="blowCandles()">
+        🕯️ Blow Candles
+    </button>
+
+    <button onclick="cutCake()">
+        🔪 Cut the Cake
+    </button>
+
+    <button onclick="showLetter()">
+        💌 Open Your Letter
+    </button>
+
+    <div class="letter" id="letter">
+        <h2>💖 A Little Birthday Letter 💖</h2>
+
+        <p>
+            Happy Birthday Dear HAYA! 🎂💗
+            <br><br>
+
+            May every new day bring you a reason to smile.
+            May your dreams come true, your heart stay happy,
+            and your life be filled with love and laughter.
+            <br><br>
+
+            You deserve all the beautiful things life has to offer.
+            Keep shining, keep smiling, and always be yourself! ✨
+            <br><br>
+
+            Sending you lots of love, happiness and birthday wishes! 💕
+            <br><br>
+
+            <strong>Happy Birthday, HAYA! 👑💗</strong>
+        </p>
+    </div>
+
+    <div class="gift" onclick="openGift()">
+        🎁
+    </div>
+
+    <p>Tap the gift for a little surprise! 💝</p>
+
+    <div id="giftMessage">
+        💖 HAYA, you are a beautiful part of this world! 💖
+        <br><br>
+        🎉 Stay happy, stay blessed, keep smiling! 🎉
+    </div>
+
+    <div class="footer">
+        Made with 💗 and lots of birthday wishes ✨
+    </div>
+
+</div>
+
+<script>
+let candlesBlown = false;
+let cakeCut = false;
+let giftOpened = false;
+
+function blowCandles() {
+    if (candlesBlown) {
+        alert("The candles are already blown out! 💗");
+        return;
+    }
+
+    document.getElementById("flame").style.display = "none";
+    candlesBlown = true;
+
+    alert("Yay! 🎉 Your wish is on its way, Haya! 💖");
+
+    createHearts(25);
+}
+
+function cutCake() {
+    if (cakeCut) {
+        alert("Enjoy your birthday cake, Haya! 🎂💗");
+        return;
+    }
+
+    cakeCut = true;
+
+    document.querySelector(".cake-body").style.background =
+        "linear-gradient(#ffb6d9, #ff1493)";
+
+    alert("Cake cutting time! 🎂 Let's celebrate! 🎉");
+
+    createHearts(20);
+}
+
+function showLetter() {
+    const letter = document.getElementById("letter");
+
+    if (letter.style.display === "block") {
+        letter.style.display = "none";
+    } else {
+        letter.style.display = "block";
+        createHearts(15);
+
+        letter.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
+}
+
+function openGift() {
+    const message = document.getElementById("giftMessage");
+
+    if (!giftOpened) {
+        message.style.display = "block";
+        document.querySelector(".gift").innerHTML = "💝";
+        giftOpened = true;
+
+        createHearts(35);
+
+        message.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    } else {
+        message.style.display =
+            message.style.display === "block" ? "none" : "block";
+    }
+}
+
+function createHearts(number) {
+    const emojis = ["💗", "💖", "💕", "💝", "✨", "🌸"];
+
+    for (let i = 0; i < number; i++) {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+        const duration = 3 + Math.random() * 4;
+
+        heart.style.animationDuration = duration + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+}
+
+// Floating hearts in the background
+setInterval(() => {
+    createHearts(1);
+}, 700);
+</script>
+
 </body>
 </html>
